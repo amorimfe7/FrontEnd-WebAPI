@@ -14,9 +14,6 @@ export class HomeComponent implements OnInit {
 
   constructor(private funcionarioService : FuncionarioService){}
 
-  //ao iniciar o componente, queremos utilizar o método GetFuncionarios e pegar o retorno do metodo (todos os funcionarios)
-  //e adicionar numa variável
-
   ngOnInit(): void {
     this.funcionarioService.GetFuncionarios().subscribe((data =>{
       const dados = data.dados;
@@ -32,9 +29,6 @@ export class HomeComponent implements OnInit {
       console.log(this.funcionarios)
     }))
   }
-
-  //agr criar a logica da função search qeu vai realizar
-  //a filtragem dos funcionarios na tabela do BD conforme o usuário vai digitando
 
   search(event : Event){
     const target = event.target as HTMLInputElement;
