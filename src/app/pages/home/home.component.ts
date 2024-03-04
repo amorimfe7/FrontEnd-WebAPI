@@ -32,4 +32,27 @@ export class HomeComponent implements OnInit {
       console.log(this.funcionarios)
     }))
   }
+
+  //agr criar a logica da função search qeu vai realizar
+  //a filtragem dos funcionarios na tabela do BD conforme o usuário vai digitando
+
+  search(event : Event){
+    const target = event.target as HTMLInputElement;
+    const value = target.value.toLowerCase();
+
+    this.funcionarios = this.funcionariosFiltro.filter(funcionario =>{
+      return funcionario.nome.toLowerCase().includes(value);
+    })
+  }
+
+  searchId(event : Event){
+    const target = event.target as HTMLInputElement;
+    const value = target.value.toString();
+
+    this.funcionarios = this.funcionariosFiltro.filter(funcionario =>{
+      return funcionario.id?.toString().includes(value);
+    })
+  }
+
 }
+

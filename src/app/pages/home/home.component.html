@@ -5,10 +5,10 @@
 
   <div class="search">
     <label>
-      <input type="text" placeholder="Pesquisar por Nome">
+      <input type="text" placeholder="Pesquisar por Nome" (input)="search($event)">
     </label>
     <label>
-      <input type="text" placeholder="Pesquisar por ID">
+      <input type="text" placeholder="Pesquisar por ID" (input)="searchId($event)">
     </label>
   </div>
 
