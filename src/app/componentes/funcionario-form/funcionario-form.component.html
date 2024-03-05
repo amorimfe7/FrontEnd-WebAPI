@@ -1,0 +1,39 @@
+<h1>Cadastro de Funcionário</h1>
+
+<form>
+  <div class="input-box">
+    <label>Nome:</label>
+    <input type="text" formControlName="nome" required>
+  </div>
+
+  <div class="input-box">
+    <label>Sobrenome:</label>
+    <input type="text" formControlName="sobrenome" required>
+  </div>
+
+  <div class="input-box">
+    <label>Departamento:</label>
+    <select id="departamento" formControlName="departamento" required>
+      <option value="Atendimento">Atendimento</option>
+      <option value="Compras">Compras</option>
+      <option value="Desenvolvimento">Desenvolvimento</option>
+      <option value="Financeiro">Financeiro</option>
+      <option value="RH">RH</option>
+      <option value="Zeladoria">Zeladoria</option>
+    </select>
+  </div>
+
+  <div class="input-box">
+    <label>Turno:</label>
+    <select id="turno" formControlName="turno" required>
+      <option value="Manha">Manhã</option>
+      <option value="Tarde">Tarde</option>
+      <option value="Noite">Noite</option>
+    </select>
+  </div>
+
+  <div class="btn-box">
+    <button>Cadastrar</button>
+    <button>Voltar</button>
+  </div>
+</form>
