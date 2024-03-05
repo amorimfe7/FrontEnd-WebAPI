@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class CadastroComponent {
 
+  btnAcao: string = "Cadastrar";
+  tituloPage: string = "Cadastro de Funcionário"
 }

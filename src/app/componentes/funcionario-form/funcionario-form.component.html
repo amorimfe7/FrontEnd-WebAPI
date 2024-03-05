@@ -1,6 +1,7 @@
-<h1>Cadastro de Funcionário</h1>
+<h1>{{tituloPage}}</h1>
 
-<form>
+<form [formGroup]="funcionarioForm" (ngSubmit)="submit()" #formDit="ngForm">
+  <input type="hidden" formControlName="id">
   <div class="input-box">
     <label>Nome:</label>
     <input type="text" formControlName="nome" required>
@@ -33,7 +34,7 @@
   </div>
 
   <div class="btn-box">
-    <button>Cadastrar</button>
+    <button>{{btnAcao}}</button>
     <button>Voltar</button>
   </div>
 </form>
