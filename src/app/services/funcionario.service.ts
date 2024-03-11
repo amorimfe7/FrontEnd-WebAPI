@@ -25,4 +25,8 @@ export class FuncionarioService {
     return this.http.get<Response<Funcionarios>>(`${this.urlAPI}/api/Funcionario/${id}`)
   }
 
+  EditaFuncionario(editadoFuncionario : Funcionarios): Observable<Response<Funcionarios[]>>{
+    return this.http.put<Response<Funcionarios[]>>(`${this.urlAPI}/api/Funcionario`, editadoFuncionario)
+  }
+
 }
