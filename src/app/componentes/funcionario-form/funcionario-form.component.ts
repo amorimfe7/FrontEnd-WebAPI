@@ -14,6 +14,7 @@ export class FuncionarioFormComponent implements OnInit {
 
   @Input() tituloPage!: string;
   @Input() btnAcao!: string;
+  @Input() dadosFuncionario: Funcionarios | null = null;
 
   funcionarioForm!: FormGroup;
 
