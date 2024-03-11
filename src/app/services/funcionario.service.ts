@@ -10,19 +10,19 @@ import { Response } from '../models/Response';
 })
 export class FuncionarioService {
 
-  private urlAPI = `${environment.urlAPI}api/Funcionario`
+  private urlAPI = environment.urlAPI;
   constructor(private http: HttpClient) { }
 
   GetFuncionarios(): Observable<Response<Funcionarios[]>> {
-    return this.http.get<Response<Funcionarios[]>>(this.urlAPI);
+    return this.http.get<Response<Funcionarios[]>>(`${this.urlAPI}/api/Funcionario`);
   }
 
   CreateFuncionario(novoFuncionario: Funcionarios): Observable<Response<Funcionarios[]>>{
-    return this.http.post<Response<Funcionarios[]>>(this.urlAPI, novoFuncionario)
+    return this.http.post<Response<Funcionarios[]>>(`${this.urlAPI}/api/Funcionario`, novoFuncionario)
   }
 
-  GetFuncionariosById(funcionarioId : number): Observable<Response<Funcionarios>>{
-    return this.http.put<Response<Funcionarios>>(this.urlAPI, funcionarioId)
+  GetFuncionariosById(id : number): Observable<Response<Funcionarios>>{
+    return this.http.get<Response<Funcionarios>>(`${this.urlAPI}/api/Funcionario/${id}`)
   }
 
 }
