@@ -7,7 +7,7 @@ import { EditarComponent } from './pages/editar/editar.component';
 const routes: Routes = [
   {path:'' , component:HomeComponent},
   {path:'cadastro', component:CadastroComponent},
-  {path:'editar', component:EditarComponent}
+  {path:'editar/:id', component:EditarComponent}
 ];
 
 @NgModule({

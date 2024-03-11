@@ -1,8 +1,8 @@
+import { Funcionarios } from './../models/Funcionarios';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { Observable } from 'rxjs';
-import { Funcionarios } from '../models/Funcionarios';
 import { Response } from '../models/Response';
 
 @Injectable({
@@ -19,6 +19,10 @@ export class FuncionarioService {
 
   CreateFuncionario(novoFuncionario: Funcionarios): Observable<Response<Funcionarios[]>>{
     return this.http.post<Response<Funcionarios[]>>(this.urlAPI, novoFuncionario)
+  }
+
+  GetFuncionariosById(funcionarioId : number): Observable<Response<Funcionarios>>{
+    return this.http.put<Response<Funcionarios>>(this.urlAPI, funcionarioId)
   }
 
 }
