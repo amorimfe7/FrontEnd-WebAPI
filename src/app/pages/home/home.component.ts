@@ -25,8 +25,6 @@ export class HomeComponent implements OnInit {
 
       this.funcionarios = dados;
       this.funcionariosFiltro = dados;
-
-      console.log(this.funcionarios)
     }))
   }
 
