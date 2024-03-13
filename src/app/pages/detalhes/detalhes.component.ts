@@ -10,14 +10,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DetalhesComponent implements OnInit {
 
-  funcionario!: Funcionarios
+  funcionario?: Funcionarios
+  id!: number
 
   constructor(private funcionarioService: FuncionarioService, private router: ActivatedRoute, private route: Router) { }
 
   ngOnInit(): void {
-    const id = Number(this.router.snapshot.paramMap.get('id'))
 
-    this.funcionarioService.GetFuncionariosById(id).subscribe((data => {
+    this.id = Number(this.router.snapshot.paramMap.get('id'))
+
+    this.funcionarioService.GetFuncionariosById(this.id).subscribe((data => {
       const dados = data.dados;
 
       dados.dataDeCriacao = new Date(dados.dataDeCriacao!).toLocaleDateString('pt-BR')
@@ -25,7 +27,12 @@ export class DetalhesComponent implements OnInit {
 
       this.funcionario = dados;
     }))
-
-
   }
+
+  ativaFuncionario(){
+    this.funcionarioService.AtivaFuncionario(this.id).subscribe((data =>{
+      this.route.navigate(['']);
+    }))
+  }
+
 }
