@@ -18,9 +18,13 @@ export class DetalhesComponent implements OnInit {
     const id = Number(this.router.snapshot.paramMap.get('id'))
 
     this.funcionarioService.GetFuncionariosById(id).subscribe((data => {
-      this.funcionario = data.dados;
+      const dados = data.dados;
 
-      console.log(this.funcionario)
+      dados.dataDeCriacao = new Date(dados.dataDeCriacao!).toLocaleDateString('pt-BR')
+      dados.dataDeAlteracao = new Date(dados.dataDeAlteracao!).toLocaleDateString('pt-BR')
+
+      this.funcionario = dados;
+
     }))
   }
 }
