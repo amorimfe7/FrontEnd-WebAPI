@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   funcionarios: Funcionarios[] = [];
   funcionariosFiltro: Funcionarios[] = [];
 
-  colunas = ['Status', 'Nome', 'Sobrenome', 'Departamento', 'Ações', 'Excluir']
+  colunas = ['Status','ID', 'Nome', 'Sobrenome', 'Departamento', 'Ações', 'Excluir']
 
   constructor(private funcionarioService : FuncionarioService){}
 
