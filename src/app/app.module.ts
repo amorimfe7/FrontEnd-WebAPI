@@ -11,6 +11,7 @@ import { FuncionarioFormComponent } from './componentes/funcionario-form/funcion
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditarComponent } from './pages/editar/editar.component';
 import { DetalhesComponent } from './pages/detalhes/detalhes.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { DetalhesComponent } from './pages/detalhes/detalhes.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
