@@ -24,7 +24,8 @@ export class DetalhesComponent implements OnInit {
       dados.dataDeAlteracao = new Date(dados.dataDeAlteracao!).toLocaleDateString('pt-BR')
 
       this.funcionario = dados;
-
     }))
+
+
   }
 }

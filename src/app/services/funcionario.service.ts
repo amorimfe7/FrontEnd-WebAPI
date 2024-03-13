@@ -32,4 +32,8 @@ export class FuncionarioService {
   InativaFuncionario(id : number): Observable<Response<Funcionarios>>{
     return this.http.put<Response<Funcionarios>>(`${this.urlAPI}/inativaFuncionario/${id}`, id)
   }
+
+  AtivaFuncionaro(id: number) : Observable<Response<Funcionarios>>{
+    return this.http.put<Response<Funcionarios>>(`${this.urlAPI}/ativaFuncionario/${id}`, id)
+  }
 }
