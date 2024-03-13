@@ -20,8 +20,7 @@ export class EditarComponent implements OnInit{
 
       this.funcionarioService.GetFuncionariosById(id).subscribe((data =>{
         this.funcionario = data.dados;
-
-        console.log(this.funcionario);
+        
       }))
   }
 
