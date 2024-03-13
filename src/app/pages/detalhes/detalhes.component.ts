@@ -35,4 +35,10 @@ export class DetalhesComponent implements OnInit {
     }))
   }
 
+  inativaFuncionario(){
+    this.funcionarioService.InativaFuncionario(this.id).subscribe((data =>{
+      this.route.navigate(['']);
+    }))
+  }
+
 }
