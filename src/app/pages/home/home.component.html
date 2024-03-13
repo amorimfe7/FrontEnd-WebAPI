@@ -1,18 +1,20 @@
 <mat-card class="table">
 
   <div class="btn-cadastro">
-    <button routerLink="/cadastro">Cadastrar novo Funcionário</button>
+    <button routerLink="/cadastro" mat-raised-button color="primary">Cadastrar novo Funcionário</button>
   </div>
 
   <div class="search">
-    <div class="search-box">
-      <label>
-        <input type="text" placeholder="Pesquisar por Nome" (input)="search($event)">
-      </label>
-      <label>
-        <input type="text" placeholder="Pesquisar por ID" (input)="searchId($event)">
-      </label>
-    </div>
+      <mat-form-field class="search-box">
+        <mat-label>Pesquisar por Nome:</mat-label>
+        <input matInput type="text" id="searchNome-funcionario" (input)="search($event)">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Pesquisar por ID:</mat-label>
+        <input matInput type="text" id="searchID-funcionario" (input)="searchId($event)">
+      </mat-form-field>
+  </div>
 
     <table mat-table [dataSource]="funcionarios">
 
@@ -68,5 +70,4 @@
       </ng-container>
 
     </table>
-  </div>
 </mat-card>
