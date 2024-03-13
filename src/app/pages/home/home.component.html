@@ -1,19 +1,24 @@
-<div class="div-all">
+<mat-card class="table">
+
   <div class="btn-cadastro">
     <button routerLink="/cadastro">Cadastrar novo Funcionário</button>
   </div>
 
   <div class="search">
-    <label>
-      <input type="text" placeholder="Pesquisar por Nome" (input)="search($event)">
-    </label>
-    <label>
-      <input type="text" placeholder="Pesquisar por ID" (input)="searchId($event)">
-    </label>
-  </div>
+    <div class="search-box">
+      <label>
+        <input type="text" placeholder="Pesquisar por Nome" (input)="search($event)">
+      </label>
+      <label>
+        <input type="text" placeholder="Pesquisar por ID" (input)="searchId($event)">
+      </label>
+    </div>
 
-  <div class="table">
-    <table>
+    <table mat-table [dataSource]="funcionarios">
+
+      <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+      <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
+
       <thead>
         <tr>
           <th>Status</th> <!--status-->
@@ -26,29 +31,54 @@
         </tr>
       </thead>
 
-      <tbody *ngFor = "let funcionario of funcionarios" >
-        <tr>
-          <td>
-            <div *ngIf="funcionario.status == true; else inativo">
-              <img src="assets/images/Ativo.png" alt="status-ativo-funcionario">
-            </div>
-            <ng-template #inativo>
-              <img src="assets/images/Inativo.png" alt="status-inativo-funcionario">
-            </ng-template>
-          </td>
-          <td>{{funcionario.id}}</td>
-          <td>{{funcionario.nome}}</td>
-          <td>{{funcionario.sobrenome}}</td>
-          <td>{{funcionario.departamento}}</td>
-          <td>
-            <button routerLink="/editar/{{funcionario.id}}">Editar</button>
-            <button routerLink="/detalhes/{{funcionario.id}}">Detalhes</button>
-          </td>
-          <td>
-            <button>Excluir</button>
-          </td>
-        </tr>
-      </tbody>
+      <ng-container matColumnDef="Status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let funcionario">
+          <div *ngIf="funcionario.status == true; else inativo">
+            <img src="assets/images/Ativo.png" alt="status-ativo-funcionario">
+          </div>
+
+          <ng-template #inativo>
+            <img src="assets/images/Inativo.png" alt="status-inativo-funcionario">
+          </ng-template>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ID">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let funcionario"> {{funcionario.id}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Nome">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let funcionario"> {{funcionario.nome}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Sobrenome">
+        <th mat-header-cell *matHeaderCellDef> Sobrenome </th>
+        <td mat-cell *matCellDef="let funcionario"> {{funcionario.sobrenome}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Departamento">
+        <th mat-header-cell *matHeaderCellDef> Departamento </th>
+        <td mat-cell *matCellDef="let funcionario"> {{funcionario.departamento}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Ações">
+        <th mat-header-cell *matHeaderCellDef> Ações </th>
+        <td mat-cell *matCellDef="let funcionario">
+          <button routerLink="/editar/:id" mat-raised-button color="accent">Editar</button>
+          <button routerLink="/detalhes/:id" mat-raised-button style="color: #ff4081">Detalhes</button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Excluir">
+        <th mat-header-cell *matHeaderCellDef> Ações </th>
+        <td mat-cell *matCellDef="let funcionario">
+          <button routerLink="/excluir" mat-raised-button color="warn">Excluir</button>
+        </td>
+      </ng-container>
+
     </table>
   </div>
-</div>
+</mat-card>
