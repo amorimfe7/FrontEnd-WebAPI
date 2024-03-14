@@ -14,16 +14,26 @@ export class ExcluirComponent implements OnInit {
   funcionario!: Funcionarios;
 
   constructor(private funcionarioService: FuncionarioService, private route: ActivatedRoute, private router: Router,
-    @Inject(MAT_DIALOG_DATA) public data:any,
-    public ref:MatDialogRef<ExcluirComponent> ){}
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public ref: MatDialogRef<ExcluirComponent>) { }
 
   ngOnInit(): void {
 
     this.dataRecebida = this.data;
 
-    this.funcionarioService.GetFuncionariosById(this.dataRecebida.id).subscribe((data =>{
+    this.funcionarioService.GetFuncionariosById(this.dataRecebida.id).subscribe((data => {
       this.funcionario = data.dados;
     }))
+  }
 
+  excluiFuncionario() {
+    this.funcionarioService.DeletaFuncionario(this.dataRecebida.id).subscribe((data => {
+      this.ref.close(); //fechando modal
+      window.location.reload();
+    }))
+  }
+
+  cancelaExclusao() {
+    this.ref.close();
   }
 }
