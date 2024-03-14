@@ -3,19 +3,15 @@ img{
   height: 20px;
 }
 
-mat-card{
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(to bottom right, #e2e2e2, #a1a1a1);
-}
 
 
-.btn-cadastro{
+/* .btn-cadastro{
   display: flex;
   justify-content: center;
   align-items: center;
 
-  margin: 10px;
+  width: 80%;
+  height: 100%;
 }
 
 .btn-cadastro button{
@@ -28,10 +24,10 @@ mat-card{
   justify-content: space-evenly;
   align-items: center;
 
-  margin-top: 20px;
+  margin-top: auto;
 }
 
 .search mat-form-field{
   width: 400px;
   height: 80px;
-}
+} */

@@ -1,4 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  width: 100vw;
+  height: 100vh;
+  font-size: 62.5%;
+
+  margin: auto;
+
+}
+
+
+.table {
+  width: 80%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(to bottom right, #e2e2e2, #a1a1a1);
+
+  padding-top: 50px;
+  padding-bottom: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+
+.btn-cadastro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: -30px;
+  margin-bottom: 8px;
+
+  width: 100%;
+}
+.btn-cadastro button{
+  width: 500px;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 40px;
+
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+
+.search #search-box {
+  width: 400px;
+}

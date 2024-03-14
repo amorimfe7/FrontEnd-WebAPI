@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, Renderer2 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Funcionarios } from '../../models/Funcionarios';
 
@@ -18,7 +18,7 @@ export class FuncionarioFormComponent implements OnInit {
 
   funcionarioForm!: FormGroup;
 
-  constructor() { }
+  constructor(private renderer: Renderer2) { }
 
   ngOnInit(): void {
     this.funcionarioForm = new FormGroup({
@@ -32,6 +32,7 @@ export class FuncionarioFormComponent implements OnInit {
       dataDeAlteracao: new FormControl(new Date())
     });
   }
+
 
   submit() {
     this.onSubmit.emit(this.funcionarioForm.value);
