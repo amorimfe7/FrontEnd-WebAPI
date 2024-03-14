@@ -36,4 +36,8 @@ export class FuncionarioService {
   AtivaFuncionario(id: number) : Observable<Response<Funcionarios>>{
     return this.http.put<Response<Funcionarios>>(`${this.urlAPI}/ativaFuncionario/${id}`, id)
   }
+
+  DeletaFuncionario(id: number) : Observable<Response<Funcionarios>>{
+    return this.http.delete<Response<Funcionarios>>(`${this.urlAPI}/api/Funcionario/${id}`)
+  }
 }
