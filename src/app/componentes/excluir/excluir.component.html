@@ -1,1 +1,40 @@
-<p>excluir works!</p>
+<div class="all" *ngIf="funcionario">
+  <h2>Deseja confirmar a exclusão?</h2>
+
+  <mat-card class="card-funcionario">
+    <div class="icon">
+      <img id="icon-user" src="assets/images/icon-user.png">
+    </div>
+
+    <div class="funcionario-content">
+      <div>
+        <h3>Funcionário:</h3>
+        <p>{{funcionario.nome}}</p>
+      </div>
+
+      <div>
+        <h3>Departamento:</h3>
+        <p>{{funcionario.departamento}}</p>
+      </div>
+    </div>
+  </mat-card>
+
+  <mat-card class="card-alert">
+    <div class="icon">
+      <img id="icon-alert" src="/assets/images/atencao.png">
+    </div>
+
+    <mat-card-header>
+      <mat-card-title>ATENÇÃO</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p id="text-alert">Esta ação é irreversível e removerá permanentemente o funcionário do sistema.</p>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="button-box">
+    <button mat-raised-button color="warn">Confirmar</button>
+    <button mat-raised-button>Cancelar</button>
+  </div>
+</div>
