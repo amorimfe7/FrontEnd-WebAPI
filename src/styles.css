@@ -4,9 +4,6 @@ html, body {
   width: 100vw;
   height: 100vh;
   font-size: 62.5%;
-
-  margin: auto;
-
 }
 
 
@@ -17,7 +14,7 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: auto;
+  margin-top: -10px;
   margin-left: auto;
   margin-right: auto;
   background: linear-gradient(to bottom right, #e2e2e2, #a1a1a1);
