@@ -20,6 +20,7 @@ import {MatSelectModule} from  '@angular/material/select' ;
 import {MatFormFieldModule} from  '@angular/material/form-field' ;
 import {MatTableModule} from '@angular/material/table';
 import { ExcluirComponent } from './componentes/excluir/excluir.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ExcluirComponent } from './componentes/excluir/excluir.component';
     MatInputModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [
     provideAnimationsAsync()

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FuncionarioService } from '../../services/funcionario.service';
 import { Funcionarios } from '../../models/Funcionarios';
+import { MatDialog } from '@angular/material/dialog';
+import { ExcluirComponent } from '../../componentes/excluir/excluir.component';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   colunas = ['Status','ID', 'Nome', 'Sobrenome', 'Departamento', 'Ações', 'Excluir']
 
-  constructor(private funcionarioService : FuncionarioService){}
+  constructor(private funcionarioService : FuncionarioService, public dialog: MatDialog){}
 
   ngOnInit(): void {
     this.funcionarioService.GetFuncionarios().subscribe((data =>{
@@ -46,6 +48,16 @@ export class HomeComponent implements OnInit {
     this.funcionarios = this.funcionariosFiltro.filter(funcionario =>{
       return funcionario.id?.toString().includes(value);
     })
+  }
+
+  openDialog(funcionarioId: number){
+    this.dialog.open(ExcluirComponent,{
+      width: '400px',
+      height: '400px',
+      data:{
+        id: funcionarioId
+      }
+    });
   }
 
 }
